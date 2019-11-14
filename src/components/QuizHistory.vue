@@ -21,7 +21,6 @@
 
 <script>
 import axios from 'axios'
-import web from '../web.php'
 export default {
   name: 'QuizHistory',
   components: {
@@ -34,7 +33,7 @@ export default {
   },
   methods: {
     refreshQuizResults () {
-      fetch(web,
+      fetch('https://reversequiz.herokuapp.com/quizresult',
         { method: 'get'
         }).then((response) => {
         return response.json()
@@ -44,7 +43,7 @@ export default {
         })
     },
     addQuizResult (numCorrect, numTotal) {
-      axios.post(web, {
+      axios.post('https://reversequiz.herokuapp.com/quizresult', {
         name: 'User',
         numCorrect: numCorrect,
         numTotal: numTotal
