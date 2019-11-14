@@ -40,7 +40,6 @@ export default {
       })
         .then((jsonData) => {
           this.quizResults = jsonData
-          console.log('iitt ' + jsonData)
         })
     },
     addQuizResult (numCorrect, numTotal) {
