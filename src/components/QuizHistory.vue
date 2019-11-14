@@ -21,7 +21,6 @@
 
 <script>
 import axios from 'axios'
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 export default {
   name: 'QuizHistory',
   components: {
@@ -34,10 +33,8 @@ export default {
   },
   methods: {
     refreshQuizResults () {
-      axios.get('https://reversequiz.herokuapp.com/quizresult',
-        { headers: {
-
-        }
+      fetch('https://reversequiz.herokuapp.com/quizresult',
+        { method: 'get'
         }).then((response) => {
         return response.json()
       })
@@ -50,11 +47,6 @@ export default {
         name: 'User',
         numCorrect: numCorrect,
         numTotal: numTotal
-      },
-      {
-        headers: {
-
-        }
       })
         .then(function (response) {
           console.log(response)
