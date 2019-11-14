@@ -46,7 +46,10 @@ export default {
       axios.post('https://reversequiz.herokuapp.com/quizresult', {
         name: 'User',
         numCorrect: numCorrect,
-        numTotal: numTotal
+        numTotal: numTotal,
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        }
       })
         .then(function (response) {
           console.log(response)
