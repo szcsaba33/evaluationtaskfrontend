@@ -33,8 +33,11 @@ export default {
   },
   methods: {
     refreshQuizResults () {
-      fetch('https://reversequiz.herokuapp.com/quizresult',
-        { method: 'get'
+      axios.get('https://reversequiz.herokuapp.com/quizresult',
+        { headers: {
+          changeOrigin: true,
+          secure: false
+        }
         }).then((response) => {
         return response.json()
       })
