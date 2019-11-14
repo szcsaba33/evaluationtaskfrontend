@@ -47,13 +47,15 @@ export default {
     },
     addQuizResult (numCorrect, numTotal) {
       axios.post('https://reversequiz.herokuapp.com/quizresult', {
-        headers: {
-          changeOrigin: true,
-          secure: false
-        },
         name: 'User',
         numCorrect: numCorrect,
         numTotal: numTotal
+      },
+      {
+        headers: {
+          changeOrigin: true,
+          secure: false
+        }
       })
         .then(function (response) {
           console.log(response)
