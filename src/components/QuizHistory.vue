@@ -35,8 +35,7 @@ export default {
     refreshQuizResults () {
       axios.get('https://reversequiz.herokuapp.com/quizresult',
         { headers: {
-          changeOrigin: true,
-          secure: false
+
         }
         }).then((response) => {
         return response.json()
@@ -53,8 +52,7 @@ export default {
       },
       {
         headers: {
-          changeOrigin: true,
-          secure: false
+
         }
       })
         .then(function (response) {
