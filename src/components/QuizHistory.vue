@@ -43,11 +43,14 @@ export default {
         })
     },
     addQuizResult (numCorrect, numTotal) {
-      axios.post('https://evaluationtask.herokuapp.com/proxy/quizresult', {
-        name: 'User',
-        numCorrect: numCorrect,
-        numTotal: numTotal
-      })
+      axios.post('https://evaluationtask.herokuapp.com/proxy/quizresult',
+        {
+          'id': 0,
+          'name': 'User',
+          'numCorrect': numCorrect,
+          'numTotal': numTotal
+        }
+      )
         .then(function (response) {
           console.log(response)
         })
