@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     refreshQuizResults () {
-      fetch('https://reversequiz.herokuapp.com/quizresult',
+      fetch('https://backendquiz.herokuapp.com/quizresult',
         { method: 'get'
         }).then((response) => {
         return response.json()
@@ -43,7 +43,7 @@ export default {
         })
     },
     addQuizResult (numCorrect, numTotal) {
-      axios.post('https://reversequiz.herokuapp.com/quizresult', {
+      axios.post('https://backendquiz.herokuapp.com/quizresult', {
         name: 'User',
         numCorrect: numCorrect,
         numTotal: numTotal
