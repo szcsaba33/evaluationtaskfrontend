@@ -5,9 +5,9 @@ const proxy = require('express-http-proxy')
 
 const app = express()
 
-app.use('/', proxy('https://backendquiz.herokuapp.com/'))
+app.use('/proxy', proxy('https://backendquiz.herokuapp.com/'))
 
-app.use('/', serveStatic(path.join(__dirname, '/dist')), proxy('https://backendquiz.herokuapp.com/'))
+app.use('/', serveStatic(path.join(__dirname, '/dist')))
 
 // this * route is to serve project on different page routes except root `/`
 app.get(/.*/, function (req, res) {
