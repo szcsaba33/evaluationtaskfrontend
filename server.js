@@ -6,15 +6,8 @@ const app = express()
 
 app.use('/', serveStatic(path.join(__dirname, '/dist')))
 
-const configurationOptions = {
-  methods: ['POST', 'GET'],
-  origin: 'http://null.jsbin.com',
-  optionsSuccessStatus: 404,
-  maxAge: 3600
-}
-
 // this * route is to serve project on different page routes except root `/`
-app.get(/.*/, configurationOptions, function (req, res) {
+app.get(/.*/, function (req, res) {
   res.sendFile(path.join(__dirname, '/dist/index.html'))
 })
 
