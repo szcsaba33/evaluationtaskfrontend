@@ -1,8 +1,11 @@
 const express = require('express')
 const serveStatic = require('serve-static')
 const path = require('path')
+const proxy = require('express-http-proxy')
 
 const app = express()
+
+app.use('/proxy', proxy('https://backendquiz.herokuapp.com/'))
 
 app.use('/', serveStatic(path.join(__dirname, '/dist')))
 

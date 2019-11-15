@@ -15,6 +15,7 @@
     "core-js": "^3.3.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-http-proxy": "^1.6.0",
     "http-proxy-middleware": "^0.20.0",
     "lodash": "latest",
     "portal-vue": "^2.1.6",
