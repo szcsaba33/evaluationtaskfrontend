@@ -1,6 +1,7 @@
 const express = require('express')
 const serveStatic = require('serve-static')
 const path = require('path')
+var cors = require('cors')
 
 const app = express()
 
@@ -10,6 +11,10 @@ app.use('/', serveStatic(path.join(__dirname, '/dist')))
 app.get(/.*/, function (req, res) {
   res.sendFile(path.join(__dirname, '/dist/index.html'))
 })
+
+// allow OPTIONS on all resources
+app.request('*', cors())
+app.options('*', cors())
 
 const port = process.env.PORT || 8080
 app.listen(port)
