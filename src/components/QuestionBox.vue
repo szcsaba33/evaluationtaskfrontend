@@ -1,8 +1,8 @@
 <template>
     <div class="question-box-container" >
-        <b-jumbotron>
+        <b-jumbotron >
             <template v-slot:lead>
-                {{ currentQuestion.question}}
+                {{ decoder(currentQuestion.question) }}
             </template>
 
             <hr class="my-4">
@@ -13,7 +13,7 @@
                         :key="index"
                         @click="selectAnswer(index)"
                         v-bind:style=answerClass(index)>
-                    {{answer}}
+                    {{ decoder(answer) }}
                 </b-list-group-item>
             </b-list-group>
 
@@ -99,6 +99,11 @@ export default {
         answerClass = { background: 'red' }
       }
       return answerClass
+    },
+    decoder (str) {
+      const textArea = document.createElement('textarea')
+      textArea.innerHTML = str
+      return textArea.value
     }
   },
   mounted () {
@@ -124,7 +129,7 @@ export default {
     .correct {
         background-color: lightgreen;
     }
-    .incorrext {
+    .incorrect {
         background-color: red;
     }
 </style>
