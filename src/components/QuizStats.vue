@@ -4,6 +4,7 @@
       <thead>
       <tr>
         <th>Min correct answers</th>
+        <th>Max correct answers</th>
         <th>Average correct answers</th>
         <th>Average total answers</th>
       </tr>
@@ -11,6 +12,7 @@
       <tbody>
       <tr>
         <td>{{quizStats.minNumCorrect}}</td>
+        <td>{{quizStats.maxNumCorrect}}</td>
         <td>{{quizStats.averageNumCorrect}}</td>
         <td>{{quizStats.averageNumTotal}}</td>
       </tr>
