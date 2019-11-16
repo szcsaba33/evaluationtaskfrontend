@@ -36,6 +36,8 @@ export default {
       .then((jsonData) => {
         this.quizStats = jsonData
       })
+  },
+  created () {
   }
 }
 </script>
