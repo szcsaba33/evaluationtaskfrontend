@@ -1,5 +1,7 @@
 <template>
-  <QuizStats/>
+  <div>
+    <QuizStats></QuizStats>
+  </div>
 </template>
 
 <script>
