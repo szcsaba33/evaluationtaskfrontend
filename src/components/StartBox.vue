@@ -2,16 +2,26 @@
 
     <div >
         <b-jumbotron>
-            <b-row class="my-1">
-                <b-col sm="2" >
-                    <label >Number of Questions:</label>
-                </b-col>
-                <b-col sm="10">
-                    <b-form-input :id="`type-number`" :type="'number'" v-model="amount" :state="maxAmount" aria-describedby="input-live-feedback"></b-form-input>
-                    <b-form-invalid-feedback id="input-live-feedback">Min 1, Max 50</b-form-invalid-feedback>
-                </b-col>
-                <b-form-invalid-feedback id="input-live-feedback">Max 50</b-form-invalid-feedback>
+          <b-row>
+            <b-col sm="2" >
+              <label >Name:</label>
+            </b-col>
+            <b-col sm="10">
+              <b-form-input  :id="`type-name`" :state="notEmptyName" v-model="nickname" ></b-form-input>
+            </b-col>
+          </b-row>
 
+          <label></label>
+
+          <b-row class="my-1">
+            <b-col sm="2" >
+                  <label >Number of Questions:</label>
+              </b-col>
+              <b-col sm="10">
+                  <b-form-input :id="`type-number`" :type="'number'" v-model="amount" :state="maxAmount" aria-describedby="input-live-feedback"></b-form-input>
+                  <b-form-invalid-feedback id="input-live-feedback">Min 1, Max 50</b-form-invalid-feedback>
+              </b-col>
+              <b-form-invalid-feedback id="input-live-feedback">Max 50</b-form-invalid-feedback>
             </b-row>
 
             <b-row>
@@ -47,7 +57,7 @@
 
             <b-row>
                 <b-col>
-                    <b-button @click="gameStart(amount, selectedCat, selectedDiff, selectedType)" >Start</b-button>
+                    <b-button @click="gameStart(amount, selectedCat, selectedDiff, selectedType, nickname)" >Start</b-button>
                 </b-col>
             </b-row>
         </b-jumbotron>
@@ -66,7 +76,10 @@ export default {
   ],
   computed: {
     maxAmount () {
-      return !!(this.amount <= 50 && this.amount > 0)
+      return (this.amount <= 50 && this.amount > 0)
+    },
+    notEmptyName () {
+      return this.nickname !== ''
     }
   },
   data () {
@@ -74,7 +87,8 @@ export default {
       selectedCat: '',
       amount: 10,
       selectedDiff: '',
-      selectedType: ''
+      selectedType: '',
+      nickname: 'Nickname'
 
     }
   }

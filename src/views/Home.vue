@@ -111,7 +111,8 @@ export default {
         { value: '', text: 'Any Type' },
         { value: 'multiple', text: 'Multiple Choice' },
         { value: 'boolean', text: 'True / False' }
-      ]
+      ],
+      nickname: 'Nickname'
 
     }
   },
@@ -127,14 +128,15 @@ export default {
     },
     gameFinish () {
       this.gameFinished = true
-      QuizHistory.methods.addQuizResult(this.numCorrect, this.numTotal)
+      QuizHistory.methods.addQuizResult(this.numCorrect, this.numTotal, this.nickname)
     },
-    gameStart (actAmount, actSelected, actDiff, actType) {
+    gameStart (actAmount, actSelected, actDiff, actType, actNickname) {
       if (actAmount < 51 && actAmount > 0) {
         this.amount = Number(actAmount)
         this.selectedCategory = actSelected
         this.selectedDifficulty = actDiff
         this.selectedType = actType
+        this.nickname = actNickname
         this.gameFetch()
         this.gameStarted = true
       }
