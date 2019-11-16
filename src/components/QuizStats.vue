@@ -31,7 +31,7 @@ export default {
     }
   },
   mounted () {
-    axios.get('https://evaluationtask.herokuapp.com/proxy/quizresult-performance')
+    axios.get('https://evaluationtask.herokuapp.com/api/quizresult-performance')
       .then(response => (this.quizStats = response.data))
   }
 }

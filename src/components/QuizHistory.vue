@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     refreshQuizResults () {
-      fetch('https://evaluationtask.herokuapp.com/proxy/quizresult',
+      fetch('https://evaluationtask.herokuapp.com/api/quizresult',
         { method: 'get'
         }).then((response) => {
         return response.json()
@@ -43,7 +43,7 @@ export default {
         })
     },
     addQuizResult (numCorrect, numTotal, name) {
-      axios.post('https://evaluationtask.herokuapp.com/proxy/quizresult',
+      axios.post('https://evaluationtask.herokuapp.com/api/quizresult',
         {
           'id': 0,
           'name': name,
