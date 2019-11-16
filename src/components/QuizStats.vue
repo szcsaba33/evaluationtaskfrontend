@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'QuizStats',
   data () {
@@ -29,7 +28,9 @@ export default {
     }
   },
   mounted () {
-    axios.get('https://evaluationtask.herokuapp.com/proxy/quizresult-performance')
+    fetch('https://evaluationtask.herokuapp.com/proxy/quizresult-performance',
+      { method: 'get'
+      })
       .then((response) => {
         return response.json()
       })
