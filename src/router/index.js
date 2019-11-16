@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import HistoryView from '@/views/HistoryView'
+import StatsView from '@/views/StatsView'
 
 Vue.use(VueRouter)
 
@@ -22,7 +23,7 @@ export default new VueRouter({
     {
       path: '/stats',
       name: 'stats',
-      components: () => import('../views/StatsView.vue')
+      component: StatsView
     }
   ]
 })

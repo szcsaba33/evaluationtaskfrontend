@@ -25,19 +25,12 @@ export default {
   name: 'QuizStats',
   data () {
     return {
-      quizStats: []
+      quizStats: null
     }
   },
   mounted () {
     axios.get('https://evaluationtask.herokuapp.com/proxy/quizresult-performance')
-      .then((response) => {
-        return response.json()
-      })
-      .then((jsonData) => {
-        this.quizStats = jsonData
-      })
-  },
-  created () {
+      .then(response => (this.quizStats = response.data))
   }
 }
 </script>

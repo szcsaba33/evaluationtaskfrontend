@@ -1,7 +1,6 @@
 <template>
-  <div>
+  <div class="about2">
     <QuizStats></QuizStats>
-    <li>Alma</li>
   </div>
 </template>
 
