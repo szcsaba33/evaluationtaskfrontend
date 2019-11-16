@@ -27,7 +27,7 @@ export default {
   name: 'QuizStats',
   data () {
     return {
-      quizStats: null
+      quizStats: []
     }
   },
   mounted () {
