@@ -2,6 +2,19 @@
     <div>
           <table class="table">
               <thead>
+                  <tr>
+                    <th>Search by name:</th>
+                    <th>
+                      <b-form  v-on:submit.prevent="refreshQuizResultsByName">
+                        <b-form-input :id="`type-name`"  v-model="searchByName" ></b-form-input>
+                      </b-form>
+                    </th>
+                    <th>
+                      <b-button @click="refreshQuizResultsByName">Search</b-button>
+                    </th>
+                  </tr>
+              </thead>
+              <thead>
               <tr>
                   <th>Name</th>
                   <th>Correct answers</th>
@@ -28,18 +41,15 @@ export default {
   },
   data () {
     return {
-      quizResults: []
+      quizResults: [],
+      searchByName: ''
     }
   },
   methods: {
     refreshQuizResults () {
-      fetch('https://evaluationtask.herokuapp.com/api/quizresult',
-        { method: 'get'
-        }).then((response) => {
-        return response.json()
-      })
-        .then((jsonData) => {
-          this.quizResults = jsonData
+      axios.get('https://evaluationtask.herokuapp.com/api/quizresult')
+        .then((response) => {
+          this.quizResults = response.data
         })
     },
     addQuizResult (numCorrect, numTotal, name) {
@@ -57,6 +67,15 @@ export default {
         .catch(function (error) {
           console.log(error)
         })
+    },
+    refreshQuizResultsByName () {
+      if (this.searchByName === '') this.refreshQuizResults()
+      else {
+        axios.get('https://evaluationtask.herokuapp.com/api/quizresult/name/' + this.searchByName)
+          .then((response) => {
+            this.quizResults = response.data
+          })
+      }
     }
 
   },
